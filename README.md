@@ -24,7 +24,7 @@ provider "aws" {
 }
 
 module "acm-public" {
-  source          = "../"
+  source          = "git::https://github.com/MagnetarIT/terraform-acm-public-certificate.git?ref=tags/0.1.0"
   namespace       = "mag"
   environment     = "test"
   name            = "app"
