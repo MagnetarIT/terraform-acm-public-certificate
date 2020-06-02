@@ -28,4 +28,8 @@ resource "aws_route53_record" "cname_record" {
   type    = "CNAME"
   ttl     = "5"
   records = [lookup(aws_acm_certificate.cert.domain_validation_options[0], "resource_record_value", "")]
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
